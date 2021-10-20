@@ -2,6 +2,9 @@
 #### Running the Simulation in Parallel ####
 ############################################
 
+# install the following packages
+install.packages(c("tidyverse", "foreach", "doParallel", "data.table"))
+
 
 ########## Running Full Parameter Combination Sets ##########
 # Use this code to run the simulation for a full parameter combination set ("combos"), replicated nreps times
@@ -10,7 +13,6 @@
 rm(list=ls())
 
 library(tidyverse)
-library(randomcoloR)
 library(foreach)
 library(doParallel)
 library(data.table)
