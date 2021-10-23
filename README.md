@@ -1,6 +1,4 @@
-This repository contains all code needed to run the simulation models in "Autopolyploid establishment depends on life history strategy and the mating outcomes of clonal architecture" by W.E. Van Drunen and J. Friedman. 
-
-bioRxiv doi:
+This repository contains all code needed to run the simulation models in "Autopolyploid establishment depends on life history strategy and the mating outcomes of clonal architecture" by W.E. Van Drunen and J. Friedman. bioRxiv [link](https://doi.org/10.1101/2021.10.21.465190)  
 
 Description:
 
