@@ -38,7 +38,7 @@ main<- function(D,N,paraVect,maxgen)
   
   ## array of locations and traits of each individual for all generations
   master<-array(NA,dim=c(maxgen,N,5)) # gen, N rows, columns = [x,y,genetID,ploidy,plantID], 
-  gendata<-matrix(NA,nrow=maxgen,ncol=60) # 60 columns = [gen,# polyploids, #2xsurvive, #4xsurvive, #2xgenets, #4xgenets, (neighbour info), 24 propagule types produced last gen, 24 propagule types recruited from last gen], free 2x spots, free 4x spots
+  gendata<-matrix(NA,nrow=maxgen,ncol=60) # 60 columns = [gen,# polyploids, #2xsurvive, #4xsurvive, #2xgenets, #4xgenets, avg 4x genet size, pzero size, 24 propagule types produced last gen, 24 propagule types recruited from last gen], free 2x spots, free 4x spots
   
   ## per generation population information
   initialinfo <- matrix(NA,nrow=N,ncol=5) # x, y, genetID, ploidy, plantID
@@ -69,7 +69,7 @@ main<- function(D,N,paraVect,maxgen)
   
   ## copy initial population to master array
   master[1,,] <- initialinfo
-  gendata[1,] <- c(1,pstart,0,0,(N-pstart),pstart,rep(0,times=4),rep(0,times=48),0,0) # columns = generation, starting polyploids, 2xsurvival, 4xsurvival,#2xgenets, #4xgenets, (neighbourinfo), 24 propagule types produced, 24 propagule types germinated, free 2x spots, free 4x spots
+  gendata[1,] <- c(1,pstart,0,0,(N-pstart),pstart,rep(0,times=4),rep(0,times=48),0,0) # columns = generation, starting polyploids, 2xsurvival, 4xsurvival,#2xgenets, #4xgenets, avg 4x genet size, pzero size, 24 propagule types produced, 24 propagule types germinated, free 2x spots, free 4x spots
   
   
   
