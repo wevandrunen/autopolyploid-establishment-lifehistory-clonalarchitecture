@@ -91,6 +91,28 @@ for(i in 1:ncomb){
 Sys.time()
 stopImplicitCluster()
 
+## Explanation of output:
+# The simulation returns a 3-dimensional array and a matrix for each replicate
+# In the code above, only the matrices (the per generation stats) are being written to output, one file per parameter combination [i]
+
+# Arrays:
+# The arrays are stored in a list (store$master, store[[1]]), where each entry (store$master[[1]],store$master[[2]], etc) contains the population information from one simulation replicate
+# The first dimension goes from 1:maxgen (total generations), the second from 1:N (population size)
+# The third dimension stores 5 variables, the per individual information for each generation in the simulation
+# [x location, y location, genetID of individual, ploidy of individual, within generation plantID of individual]
+# These are used to produce the "snapshots" of 2D population structure below (for a single parameter set)
+
+# Matrices:
+# The matrices are appended together as each replicate finishes (into store$geninfo, store[[2]]), so that the final output is a large matrix with maxgen*nreps rows
+# Each row contains the "generation stats" for a single generation, within a particular simulation replicate
+# There are 60 columns: 
+# [generation #, number of 4x, number of 2x surviving this generation, number of 4x surviving this generation, 
+# number of 2x genets, number of 4x genets, avg 4x genet size (number ramets), size of initital 4x genet, 
+# number of 22 sexual propagule types produced by last generation (see Table S1 for types), number of 2x ramets produced, number of 4x ramets produced,
+# number of 22 sexual propagule types recruited from last generation (see Table S1 for types), number of 2x ramets recruited, number of 4x ramets recruited, 
+# avg empty spaces surrounding each surviving 2x individual, avg empty spaces surrounding each surviving 4x individual]
+# Because of the order of steps taken per generation, remember that these stats contain a mix of information about the current *and previous* generation
+# Notably, the recorded seeds made and recruited are those produced by individuals in the previous generation 
 
 
 
